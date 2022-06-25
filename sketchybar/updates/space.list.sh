@@ -12,15 +12,15 @@ for display in $DISPLAYS; do
     while read -r index window yabai_name visible; do
         COUNT=$((COUNT + 1))
 
-        NAMES="$NAMES space.${index}"
-        args+=(--clone "space.${index}" space_template before
-               --set   "space.${index}" label="${index}"
+        NAMES="$NAMES space.list.${index}"
+        args+=(--clone "space.list.${index}" template.space.list before
+               --set   "space.list.${index}" label="${index}"
                                         icon="${index}"
                                         associated_space=${COUNT}
                                         background.drawing=off
                                         associated_display=${display}
                                         drawing=on
-               --subscribe "space.${index}" space_changed)
+               --subscribe "space.list.${index}" space_changed)
     done <<<"$SPACES"
 
     # Reorder them and stick them onto sketchybar
@@ -29,7 +29,7 @@ for display in $DISPLAYS; do
 done
 
 # Get the current space count
-CURRENT_SPACE_COUNT=$(sketchybar -m --query bar | jq -r '.items | map(select(contains("space."))) | map(sub("space.";"")) | map(tonumber) | max')
+CURRENT_SPACE_COUNT=$(sketchybar -m --query bar | jq -r '.items | map(select(contains("space.list."))) | map(sub("space.list.";"")) | map(tonumber) | max')
 
 if [ "$CURRENT_SPACE_COUNT" == "" ]; then
     CURRENT_SPACE_COUNT=0
@@ -38,7 +38,7 @@ fi
 # If our current space count is greater than the count found by the yabai query,
 # go through and remove the destroyed spaces
 while [ $CURRENT_SPACE_COUNT -gt $COUNT ]; do
-    sketchybar -m --remove "space.${CURRENT_SPACE_COUNT}"
+    sketchybar -m --remove "space.list.${CURRENT_SPACE_COUNT}"
     CURRENT_SPACE_COUNT=$((CURRENT_SPACE_COUNT - 1))
 done
 

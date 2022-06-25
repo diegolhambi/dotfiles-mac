@@ -3,7 +3,7 @@
 update() {
     args=()
 
-    if [ "$NAME" == "space_template" ]; then
+    if [ "$NAME" == "template.space.list" ]; then
         exit 0
     fi
 

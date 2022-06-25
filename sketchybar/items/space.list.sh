@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sketchybar --add space          space_template left                             \
-           --set space_template                                                 \
+sketchybar --add space          template.space.list left                        \
+           --set template.space.list                                            \
                                 icon.width=24                                   \
                                 icon.align=center                               \
                                 icon.color=$COLOR_DEFAULT_ICON                  \
