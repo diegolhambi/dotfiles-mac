@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "plugin/space.mode"
+
 WINDOW=$(yabai -m query --spaces --space)
 ACT_DISPLAY=$(echo "$WINDOW" | jq -r '.display')
 

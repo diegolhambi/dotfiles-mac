@@ -15,7 +15,6 @@ update() {
 
     args+=(--set $NAME label=$NAME icon.highlight=$SELECTED background.drawing=$SELECTED)
 
-    echo "$NAME"
     sketchybar -m "${args[@]}"
 }
 

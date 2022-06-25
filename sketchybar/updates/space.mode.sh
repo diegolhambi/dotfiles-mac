@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-echo "updates/space.mode"
 args=()
 DISPLAYS="$(yabai -m query --displays | jq -rc '.[] | .index | @sh')"
 
