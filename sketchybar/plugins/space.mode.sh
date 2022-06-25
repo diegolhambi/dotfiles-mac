@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ "${NAME}" == "template.space.mode" ]; then
+    exit 0
+fi
+
 WINDOW=$(yabai -m query --spaces --space)
 ACT_DISPLAY=$(echo "$WINDOW" | jq -r '.display')
 
