@@ -1,0 +1,107 @@
+#!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# spaces settings
+
+# yabai -m space 1 --label one
+# yabai -m space 2 --label two
+# yabai -m space 3 --label three
+# yabai -m space 4 --label four
+# yabai -m space 5 --label five
+# yabai -m space 6 --label six
+# yabai -m space 7 --label seven
+# yabai -m space 8 --label eight
+# yabai -m space 9 --label nine
+# yabai -m space 10 --label zero
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+
+# styling settings
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+
+# focus border settings
+yabai -m config window_border                on
+yabai -m config window_border_width          3
+yabai -m config active_window_border_color   0xffff9999 #0xff775759
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+
+# mouse settings
+# yabai -m config mouse_modifier               fn
+# yabai -m config mouse_action1                move
+# yabai -m config mouse_action2                resize
+# yabai -m config mouse_drop_action            swap
+
+# float system preferences. Most of these just diable Yabai form resizing them.
+yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+yabai -m rule --add app="YabaiIndicator" sticky=on layer=above manage=off
+yabai -m rule --add app="^Flux$" manage=off
+yabai -m rule --add app="^Time Out$" manage=off
+yabai -m rule --add app="^Browserosaurus$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Calculator$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Installer$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Step Two$" sticky=on layer=above manage=off
+
+# general space settings
+yabai -m config layout                       bsp
+yabai -m config top_padding                  4
+yabai -m config bottom_padding               4
+yabai -m config left_padding                 4
+yabai -m config right_padding                4
+yabai -m config window_gap                   2
+
+yabai -m config external_bar all:28:0
+# yabai -m config external_bar all:28:28
+
+# yabaiindicator
+# yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_title_changed &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger window_title_changed &> /dev/null"
+
+yabai -m signal --add event=display_added action="sketchybar -m --trigger display_number_changed &> /dev/null"
+yabai -m signal --add event=display_removed action="sketchybar -m --trigger display_number_changed &> /dev/null"
+yabai -m signal --add event=mission_control_exit action="sketchybar -m --trigger space_number_changed &> /dev/null"
+
+yabai -m signal --add event=space_changed action="sketchybar -m --trigger space_changed &> /dev/null"
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger space_changed &> /dev/null"
+
+echo "yabai configuration loaded.."

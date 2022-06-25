@@ -5,3 +5,5 @@
 
 - link:
     ~/.zshrc: zshrc
+    ~/.yabairc: yabai/config
+    ~/.skhdrc: skhd/config
