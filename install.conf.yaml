@@ -7,3 +7,6 @@
     ~/.zshrc: zshrc
     ~/.yabairc: yabai/config
     ~/.skhdrc: skhd/config
+    ~/.config/sketchybar:
+        create: true
+        path: sketchybar
