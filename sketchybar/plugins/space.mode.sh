@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
+echo "plugin/space.mode"
+WINDOW=$(yabai -m query --spaces --space)
+ACT_DISPLAY=$(echo "$WINDOW" | jq -r '.display')
 
-update() {
-  # This is called for all other events
-  WINDOW=$(yabai -m query --spaces --space)
-  case "$(echo "$WINDOW" | jq -rc '.type')" in
+case "$(echo "$WINDOW" | jq -rc '.type')" in
     "bsp")
       icon="􀛧"
       ;;
@@ -13,34 +13,10 @@ update() {
     "float")
       icon="􀚅"
       ;;
-  esac
-  sketchybar --set "$NAME" icon=$icon
-}
-
-mouse_clicked() {
-    yabai -m space --layout stack
-    update
-}
-
-mouse_entered() {
-    sketchybar --set "$NAME" background.drawing=on
-}
-
-mouse_exited() {
-    sketchybar --set "$NAME" background.drawing=off
-}
-
-case "$SENDER" in
-     "mouse.entered")
-         mouse_entered
-         ;;
-     "mouse.exited")
-         mouse_exited
-         ;;
-     "mouse.clicked")
-         mouse_clicked
-         ;;
-     *)
-         update
-         ;;
 esac
+
+if [ $ACT_DISPLAY == "$(echo "${NAME}" | cut -d. -f3)" ]; then
+    sketchybar -m --set ${NAME} icon="${icon}" drawing=on
+else
+    sketchybar -m --set ${NAME} drawing=off
+fi
