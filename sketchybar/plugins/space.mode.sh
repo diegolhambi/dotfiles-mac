@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "${NAME}" == "template.space.mode" ]; then
-    exit 0
-fi
-
 WINDOW=$(yabai -m query --spaces --space)
-ACT_DISPLAY=$(echo "$WINDOW" | jq -r '.display')
 
 case "$(echo "$WINDOW" | jq -rc '.type')" in
     "bsp")
@@ -19,8 +14,9 @@ case "$(echo "$WINDOW" | jq -rc '.type')" in
       ;;
 esac
 
-if [ $ACT_DISPLAY == "$(echo "${NAME}" | cut -d. -f3)" ]; then
-    sketchybar -m --set ${NAME} icon="${icon}" drawing=on
-else
-    sketchybar -m --set ${NAME} drawing=off
-fi
+case "$SENDER" in
+    "front_app_switched"|"space_mode_changed") sketchybar --set $NAME icon="${icon}"
+    ;;
+    "display_change") sketchybar --set $NAME associated_display=$INFO
+    ;;
+esac

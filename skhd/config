@@ -131,11 +131,11 @@ ctrl + alt - 0x21 : yabai -m window --focus stack.prev || yabai -m window --focu
 
 # create desktop and follow focus - uses jq for parsing json (brew install jq)
 cmd + alt - n : yabai -m space --create && \
-                 sketchybar -m --trigger space_number_changed &> /dev/null
+                 sketchybar --update
 
 # destroy desktop
 cmd + alt - w : yabai -m space --destroy && \
-                sketchybar -m --trigger space_number_changed &> /dev/null
+                sketchybar --update
 
 
 # mute mic
