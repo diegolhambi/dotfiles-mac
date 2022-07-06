@@ -13,6 +13,9 @@
     ~/.hammerspoon:
         create: true
         path: hammerspoon
+    ~/.config/kitty:
+        create: true
+        path: kitty
 
 - install-brew: true
 
