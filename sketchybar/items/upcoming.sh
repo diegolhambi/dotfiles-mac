@@ -4,7 +4,7 @@ sketchybar --add item upcoming right                                            
            --set upcoming label.color=$COLOR_DESACTIVATED_LABEL                            \
                           update_freq=20                                                   \
                           updates=on                                                       \
-                          popup.blur_radius=15                                             \
+                          popup.blur_radius=25                                             \
                           popup.background.corner_radius=4                                 \
                           popup.background.color=$COLOR_BAR                                \
                           popup.height=26                                                  \
