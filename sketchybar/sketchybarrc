@@ -21,7 +21,7 @@ sketchybar --bar height=28           \
 sketchybar --default updates=when_shown                        \
                      drawing=on                                \
                      label.font="SF Pro:Semibold:13.0"         \
-                     label.color=$COLOR_DEFAULT_LABEL           \
+                     label.color=$COLOR_DEFAULT_LABEL          \
                      label.padding_left=$PADDINGS              \
                      label.padding_right=$PADDINGS             \
                      label.y_offset=0                          \
@@ -49,6 +49,8 @@ source "$ITEM_DIR/network.wifi.sh"
 source "$ITEM_DIR/network.vpn.sh"
 
 source "$ITEM_DIR/battery.sh"
+
+source "$ITEM_DIR/upcoming.sh"
 
 ##### Finalizing Setup #####
 sketchybar --update
