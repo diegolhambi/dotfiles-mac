@@ -8,7 +8,7 @@ else
     LEVEL=$(osascript -e 'set ovol to input volume of (get volume settings)')
 fi
 
-if [ $LEVEL == 0 ]; then
+if [ $LEVEL < 40 ]; then
     LEVEL=50
 fi
 
