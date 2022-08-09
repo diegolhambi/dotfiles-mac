@@ -8,8 +8,8 @@ if [ "${INFO}" == "" ]; then
     INFO=$(echo "$QUERY" | jq -r '.app')
 fi
 
-if [[ ${#TITLE} -gt 100 ]]; then
-    TITLE="$(echo "$TITLE" | cut -c 1-100)..."
+if [[ ${#TITLE} -gt 50 ]]; then
+    TITLE="$(echo "$TITLE" | cut -c 1-50)..."
 fi
 
 case "$SENDER" in
