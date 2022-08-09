@@ -107,7 +107,7 @@ def plugin_draw(main_text, popup_items):
             f'--set {name} icon.padding_left=0',
             f'--set {name} icon.padding_right=4',
             f'--set {name} icon.color={item["calendar"]}',
-            f'--set {name} label.color=0xff606f80',
+            f'--set {name} label.color=0xff7d7865',
             f'--set {name} background.padding_left=6',
             f'--set {name} background.padding_right=6',
             f'--set {name} label="{item["text"]}"',
