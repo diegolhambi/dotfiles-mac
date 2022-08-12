@@ -8,7 +8,8 @@ PLUGIN_DIR="/Users/daigou/.config/sketchybar/plugins"
 ITEM_DIR="/Users/daigou/.config/sketchybar/items"
 UPDATE_DIR="/Users/daigou/.config/sketchybar/updates"
 
-sketchybar --bar height=28           \
+sketchybar --bar sticky=on           \
+                 height=28           \
                  blur_radius=25      \
                  position=top        \
                  padding_left=5      \
