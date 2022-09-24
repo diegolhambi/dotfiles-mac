@@ -20,8 +20,8 @@ class Event:
 
         if (calendar == 'Diego Pereira'):
             self.calendar = '0xdb4a90e2'
-        elif (calendar == 'Agenda Compartilhada'):
-            self.calendar = '0xdb9013fe'
+        elif (calendar == 'paulaseila@gmail.com'):
+            self.calendar = '0xffec6d6d'
 
     def __repr__(self):
         return f"Event(uid: {self.uid}, title: {self.title}, diff: {self.diff}, ongoing: {self.ongoing}, time: {self.time}, url: {self.url}, calendar: {self.calendar})"
