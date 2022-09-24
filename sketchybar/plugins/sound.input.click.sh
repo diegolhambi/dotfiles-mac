@@ -2,17 +2,7 @@
 
 source "$(dirname $(dirname $0))/colors.sh"
 
-if [ -f "/tmp/sound.input.level" ]; then
-    LEVEL=$(cat /tmp/sound.input.level)
-else
-    LEVEL=$(osascript -e 'set ovol to input volume of (get volume settings)')
-fi
-
-if [ $LEVEL < 40 ]; then
-    LEVEL=50
-fi
-
-echo "$LEVEL" > /tmp/sound.input.level
+LEVEL=50
 
 VOLUME=$(osascript -e 'input volume of (get volume settings)')
 
