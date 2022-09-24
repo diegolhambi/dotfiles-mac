@@ -31,7 +31,7 @@ def get_events():
     now = datetime.datetime.now()
     url_pattern = r'\b((?:https?://)?(?:(?:www\.)?(?:[\da-z\.-]+)\.(?:[a-z]{2,6})|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|(?:(?:[0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:(?:(?::[0-9a-fA-F]{1,4}){1,6})|:(?:(?::[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(?::[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(?:ffff(?::0{1,4}){0,1}:){0,1}(?:(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])|(?:[0-9a-fA-F]{1,4}:){1,4}:(?:(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])))(?::[0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])?(?:/[\w\.-]*)*/?)\b'
 
-    cmd = "icalBuddy -n -nrd -npn -ea -ps '/🛂/' -nnr '' -b '' -ab '' -iep 'title,notes,datetime' -uid eventsToday+1"
+    cmd = "icalBuddy -n -nrd -npn -ea -ps '/🛂/' -nnr ' ' -b '' -ab '' -iep 'title,notes,datetime' -uid eventsToday+1"
     output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()[0]
     lines = output.decode('utf-8').strip().split('\n')
 
@@ -46,7 +46,15 @@ def get_events():
         title = match.group(1)
         calendar = match.group(2)
 
-        urls = re.findall(url_pattern, splat[1])
+        urlsfound = re.findall(url_pattern, splat[1])
+
+        meetingurls = ['teams.microsoft.com', 'us02web.zoom.us', 'meet.google.com']
+        urls = []
+        for url in urlsfound:
+            for meetingurl in meetingurls:
+                if meetingurl in url:
+                    urls.append(url)
+
         url = (urls + [None])[0]
 
         uid = splat[-1].encode('utf-8')
