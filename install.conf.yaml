@@ -10,6 +10,9 @@
     ~/.config/sketchybar:
         create: true
         path: sketchybar
+    ~/.grc:
+        create: true
+        path: grc
     ~/.hammerspoon:
         create: true
         path: hammerspoon
