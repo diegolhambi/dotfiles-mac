@@ -4,6 +4,12 @@ ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 # open terminal, blazingly fast compared to iTerm/Hyper
 alt + cmd - return : kitty --single-instance -d=$HOME
 
+# focus window
+ctrl - left : yabai -m window --focus west
+ctrl - down : yabai -m window --focus south
+ctrl - up : yabai -m window --focus north
+ctrl - right : yabai -m window --focus east
+
 # balance size of windows
 ctrl + alt - 0x18 : yabai -m space --balance
 
@@ -48,15 +54,6 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
-
-# float / unfloat window and center on screen
-shift + alt - t : yabai -m window --toggle float;\
-          yabai -m window --toggle sticky;\
-          yabai -m window --grid 4:4:1:1:2:2
-
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --toggle sticky;\
-          yabai -m window --grid 20:20:1:1:18:18
 
 # change layout of desktop
 ctrl + alt - z : yabai -m space --layout bsp && \
