@@ -59,6 +59,8 @@ source "$ITEM_DIR/network.vpn.sh"
 
 source "$ITEM_DIR/battery.sh"
 
+source "$ITEM_DIR/message.indicator.sh"
+
 source "$ITEM_DIR/upcoming.sh"
 
 ##### Finalizing Setup #####
