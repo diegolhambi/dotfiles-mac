@@ -19,3 +19,6 @@
     ~/.config/kitty:
         create: true
         path: kitty
+    ~/.config/nvim:
+        create: true
+        path: nvim
