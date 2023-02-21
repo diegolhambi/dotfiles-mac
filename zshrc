@@ -1,9 +1,5 @@
 autoload -Uz compinit; compinit -u
 
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/python@3.10/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
 source $(brew --prefix)/opt/zinit/zinit.zsh
 
 zinit snippet OMZL::completion.zsh
@@ -25,6 +21,7 @@ zinit load zsh-users/zsh-syntax-highlighting
 zinit light spaceship-prompt/spaceship-prompt
 
 SPACESHIP_GIT_STATUS_STASHED=""
+spaceship remove gcloud
 
 autoload -U zcalc
 function __calc_plugin {
