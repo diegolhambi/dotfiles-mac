@@ -6,5 +6,5 @@ output=(
 )
 
 sketchybar -m --add item sound.output right \
-              --set "${output[@]}"          \
+              --set sound.output "${output[@]}" \
               --subscribe sound.output volume_change

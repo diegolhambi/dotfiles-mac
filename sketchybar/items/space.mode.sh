@@ -8,5 +8,6 @@ mode=(
 )
 
 sketchybar --add item space.mode left \
-           --set space.mode "$mode[@]" \
+           --set space.mode "${mode[@]}" \
+           --add event space_mode_changed \
            --subscribe space.mode space_mode_changed front_app_switched display_change
