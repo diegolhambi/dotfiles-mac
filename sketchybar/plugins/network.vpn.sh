@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 VPN=$(scutil --nc list | grep Connected | sed -E 's/.*"(.*)".*/\1/')
 

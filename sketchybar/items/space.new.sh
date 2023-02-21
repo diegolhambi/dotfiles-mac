@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar -m --add item space.new left         \
               --set space.new icon=􀅼           \

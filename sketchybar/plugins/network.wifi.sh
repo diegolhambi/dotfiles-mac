@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 WIFI_OFF=$(ifconfig en0 | awk '/status:/{print $2}')
 

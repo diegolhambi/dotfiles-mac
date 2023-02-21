@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 QUERY=$(yabai -m query --windows --window & disown)
 TITLE=$(echo "$QUERY" | jq -r '.title')

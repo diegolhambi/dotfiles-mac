@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar --add item calendar.date right                            \
            --set calendar.date update_freq=30                        \

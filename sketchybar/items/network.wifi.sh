@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar -m --add item network.wifi right                  \
               --set network.wifi icon=􀙇                     \

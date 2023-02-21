@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar -m --add item sound.input right                          \
               --set sound.input                                     \

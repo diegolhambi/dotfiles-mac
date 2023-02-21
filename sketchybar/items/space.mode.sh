@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar --add item             space.mode left                                      \
            --set space.mode       drawing=on                                           \

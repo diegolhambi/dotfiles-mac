@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar --add item              window.title left                                      \
            --set window.title      drawing=on                                             \

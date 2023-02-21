@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 MUTED=$(osascript -e "get volume settings" | grep "muted:true")
 

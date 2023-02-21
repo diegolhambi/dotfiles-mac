@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 COLOR_SHADOW=0xff23241f
 COLOR_BAR=0xff1c1d1a

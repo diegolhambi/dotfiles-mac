@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar --add       item battery right                          \
            --set       battery                                     \

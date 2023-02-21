@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sketchybar --add item calendar.clock right                             \
            --set calendar.clock update_freq=1                          \

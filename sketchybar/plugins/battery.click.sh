@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [ "$(pgrep -x "caffeinate")" = "" ]; then
     caffeinate -id &disown;

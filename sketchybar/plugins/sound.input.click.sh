@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 source "$(dirname $(dirname $0))/colors.sh"
 
