@@ -23,9 +23,5 @@ if [ "$(pgrep -x "caffeinate")" != "" ]; then
     icon="􀸙 ${icon}"
 fi
 
-sketchybar -m --set $NAME icon.color="$color"         \
-                          icon="$icon"                \
-                          label="${battery_percent}%"
-
-
+sketchybar -m --set $NAME icon.color="$color" icon="$icon"
 

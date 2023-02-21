@@ -3,6 +3,7 @@
 battery=(
     update_freq=60
     updates=on
+    label.drawing=off
     script="$PLUGIN_DIR/battery.sh"
     click_script="$PLUGIN_DIR/battery.click.sh"
 )
