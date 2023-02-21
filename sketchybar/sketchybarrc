@@ -1,38 +1,46 @@
 #!/bin/bash
 
-source "/Users/daigou/.config/sketchybar/colors.sh"
+source "$HOME/.config/sketchybar/colors.sh"
+
+ITEM_DIR="$HOME/.config/sketchybar/items"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+UPDATE_DIR="$HOME/.config/sketchybar/updates"
 
 PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
+FONT="SF Pro Display"
 
-PLUGIN_DIR="/Users/daigou/.config/sketchybar/plugins"
-ITEM_DIR="/Users/daigou/.config/sketchybar/items"
-UPDATE_DIR="/Users/daigou/.config/sketchybar/updates"
+bar=(
+    sticky=on
+    height=28
+    blur_radius=25
+    position=top
+    padding_left=10
+    padding_right=10
+    color=$COLOR_BAR
+    topmost=off
+    shadow=on
+    font_smoothing=off
+)
 
-sketchybar --bar sticky=on           \
-                 height=28           \
-                 blur_radius=25      \
-                 position=top        \
-                 padding_left=5      \
-                 padding_right=5     \
-                 color=$COLOR_BAR    \
-                 topmost=off         \
-                 shadow=on           \
-                 font_smoothing=off
+sketchybar --bar "${bar[@]}"
 
-sketchybar --default updates=when_shown                        \
-                     drawing=on                                \
-                     label.font="SF Pro Display:Semibold:13.0" \
-                     label.color=$COLOR_DEFAULT_LABEL          \
-                     label.padding_left=$PADDINGS              \
-                     label.padding_right=$PADDINGS             \
-                     label.y_offset=0                          \
-                     icon.font="SF Pro Display:Semibold:15.0"  \
-                     icon.color=$COLOR_DEFAULT_ICON            \
-                     icon.padding_left=$PADDINGS               \
-                     icon.padding_right=$PADDINGS              \
-                     background.corner_radius=3                \
-                     background.padding_left=$PADDINGS         \
-                     background.padding_right=$PADDINGS
+defaults=(
+    updates=when_shown                        
+    label.font="$FONT:Semibold:13.0" 
+    label.color=$COLOR_DEFAULT_LABEL          
+    label.padding_left=$PADDINGS              
+    label.padding_right=$PADDINGS             
+    label.y_offset=0                          
+    icon.font="$FONT:Semibold:15.0"  
+    icon.color=$COLOR_DEFAULT_ICON            
+    icon.padding_left=$PADDINGS               
+    icon.padding_right=$PADDINGS              
+    background.corner_radius=3                
+    background.padding_left=$PADDINGS         
+    background.padding_right=$PADDINGS
+)
+
+sketchybar --default "${defaults[@]}"
 
 source "$ITEM_DIR/space.list.sh"
 source "$ITEM_DIR/space.new.sh"

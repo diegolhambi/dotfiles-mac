@@ -1,8 +1,12 @@
 #!/bin/bash
 
-sketchybar -m --add item network.vpn right                  \
-              --set network.vpn icon=􀌋                     \
-                        updates=on                          \
-                        label.drawing=off                   \
-                        update_freq=5                       \
-                        script="$PLUGIN_DIR/network.vpn.sh"
+vpn=(
+    update_freq=5
+    updates=on
+    icon=􀌋
+    label.drawing=off
+    script="$PLUGIN_DIR/network.vpn.sh"
+)
+
+sketchybar -m --add item network.vpn right \
+              --set network.vpn "$vpn[@]"

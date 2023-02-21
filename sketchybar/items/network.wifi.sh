@@ -1,8 +1,12 @@
 #!/bin/bash
 
-sketchybar -m --add item network.wifi right                  \
-              --set network.wifi icon=􀙇                     \
-                        updates=on                           \
-                        label.drawing=off                    \
-                        update_freq=3                        \
-                        script="$PLUGIN_DIR/network.wifi.sh"
+wifi=(
+    update_freq=5
+    updates=on
+    icon=􀙇
+    label.drawing=off
+    script="$PLUGIN_DIR/network.wifi.sh"
+)
+
+sketchybar -m --add item network.wifi right \
+              --set network.wifi "${wifi[@]}"

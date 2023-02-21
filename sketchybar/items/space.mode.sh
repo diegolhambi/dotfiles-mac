@@ -1,10 +1,12 @@
 #!/bin/bash
 
-sketchybar --add item             space.mode left                                      \
-           --set space.mode       drawing=on                                           \
-                                  updates=on                                           \
-                                  script="$PLUGIN_DIR/space.mode.sh"                   \
-                                  icon.color=$COLOR_DESACTIVATED_ICON                  \
-                                  label.drawing=off                                    \
-           --add event            space_mode_changed                                   \
+mode=(
+    updates=on
+    icon.color=$COLOR_DESACTIVATED_ICON
+    label.drawing=off
+    script="$PLUGIN_DIR/space.mode.sh"
+)
+
+sketchybar --add item space.mode left \
+           --set space.mode "$mode[@]" \
            --subscribe space.mode space_mode_changed front_app_switched display_change
