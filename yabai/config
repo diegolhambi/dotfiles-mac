@@ -52,7 +52,7 @@ yabai -m config left_padding                 2
 yabai -m config right_padding                2
 yabai -m config window_gap                   1
 
-yabai -m config external_bar all:28:0
+yabai -m config external_bar all:24:0
 
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_title_changed &> /dev/null"
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger window_title_changed &> /dev/null"
