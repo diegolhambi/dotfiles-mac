@@ -9,5 +9,4 @@ clock=(
 )
 
 sketchybar --add item calendar.clock right    \
-           --set calendar.clock "${clock[@]}" \
-           --subscribe system_woke
+           --set calendar.clock "${clock[@]}"
