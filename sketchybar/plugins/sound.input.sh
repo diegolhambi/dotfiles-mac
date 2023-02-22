@@ -12,7 +12,7 @@ else
     color=$COLOR_WARNING_ICON
 fi
 
-ALLOWED_INPUTS=('External Microphone' 'MacBook Pro Microphone')
+ALLOWED_INPUTS=('External Microphone' 'MacBook Air Microphone')
 ACTUAL_INPUT=$(SwitchAudioSource -t input -c & disown)
 
 if [[ ! "${ALLOWED_INPUTS[*]}" =~ "${ACTUAL_INPUT}" ]]; then
