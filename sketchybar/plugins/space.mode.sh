@@ -17,6 +17,4 @@ esac
 case "$SENDER" in
     "front_app_switched"|"space_mode_changed") sketchybar --set $NAME icon="${icon}"
     ;;
-    "display_change") sketchybar --set $NAME associated_display=$INFO
-    ;;
 esac
