@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname $(dirname $0))/colors.sh"
+source "$HOME/.config/sketchybar/colors.sh"
 
 VOLUME=$(osascript -e 'input volume of (get volume settings)')
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname $(dirname $0))/colors.sh"
+source "$HOME/.config/sketchybar/colors.sh"
 
 LEVEL=50
 

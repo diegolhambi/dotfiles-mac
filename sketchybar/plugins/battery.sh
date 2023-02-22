@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname $(dirname $0))/colors.sh"
+source "$HOME/.config/sketchybar/colors.sh"
 
 data=$(pmset -g batt)
 battery_percent=$(echo $data | grep -Eo "\d+%" | cut -d% -f1)
