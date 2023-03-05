@@ -20,4 +20,10 @@ if [[ ! "${ALLOWED_INPUTS[*]}" =~ "${ACTUAL_INPUT}" ]]; then
     color=$COLOR_ATTENTION_ICON
 fi
 
-sketchybar --set $NAME icon="${icon}" icon.color="${color}"
+case "${ACTUAL_INPUT}" in
+    'MacBook Air Microphone') label=􀟛  ;;
+    'External Microphone') label=􀑫  ;;
+    *) label=􀁜 ;;
+esac
+
+sketchybar --set $NAME icon="${icon}" icon.color="${color}" label="${label}"
