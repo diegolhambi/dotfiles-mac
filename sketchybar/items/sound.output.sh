@@ -2,7 +2,7 @@
 
 output=(
     update_freq=10
-    label.font="$FONT:Semibold:12.0" 
+    label.font="$FONT:Semibold:10.0"
     script="$PLUGIN_DIR/sound.output.sh"
 )
 
