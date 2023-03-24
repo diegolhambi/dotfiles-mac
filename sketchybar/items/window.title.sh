@@ -13,4 +13,4 @@ title=(
 sketchybar --add item window.title left     \
            --set window.title "${title[@]}" \
            --add event window_title_changed \
-           --subscribe window.title front_app_switched display_change
+           --subscribe window.title front_app_switched display_change window_title_changed
