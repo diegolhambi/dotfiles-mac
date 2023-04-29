@@ -9,14 +9,10 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZL::key-bindings.zsh
 zinit snippet OMZL::theme-and-appearance.zsh
 
-zinit ice wait lucid
 zinit snippet OMZP::git/git.plugin.zsh
 
-zinit ice wait lucid
-zinit snippet OMZP::composer/composer.plugin.zsh
-
-zinit ice wait lucid
-zinit load zsh-users/zsh-syntax-highlighting
+zinit ice wait
+zinit light zsh-users/zsh-syntax-highlighting
 
 zinit light spaceship-prompt/spaceship-prompt
 
