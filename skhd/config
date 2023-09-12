@@ -67,7 +67,7 @@ ctrl + alt - c : yabai -m space --layout stack && \
 
 
 # move window between monitors
-cmd + alt - 0x2F : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display recent && yabai -m window --focus $WIN_ID
+# cmd + alt - 0x2F : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display recent && yabai -m window --focus $WIN_ID
 
 # focus stacked window
 ctrl + alt - 0x1E : yabai -m window --focus stack.next || yabai -m window --focus stack.first
