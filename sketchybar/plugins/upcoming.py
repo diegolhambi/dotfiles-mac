@@ -26,7 +26,7 @@ def get_events():
     datetime_format = '%d %b %Y %H:%M'
     now = datetime.datetime.now()
 
-    cmd = "icalBuddy -n -nrd -npn -ea -ps '/🛂/' -nnr ' ' -b '' -ab '' -iep 'title,notes,datetime' -uid eventsToday+1"
+    cmd = "icalBuddy -n -nrd -npn -ea -ps '/🛂/' -nnr ' ' -b '' -ab '' -iep 'title,datetime' -uid eventsToday+1"
     output = subprocess.Popen(
         cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()[0]
     lines = output.decode('utf-8').strip().split('\n')
@@ -47,9 +47,12 @@ def get_events():
         timerange = splat[-2].replace('at ', '')
         starttime, endtime = timerange.split(' - ')
 
-        endtime = datetime.datetime.strptime(
-            starttime[:-5] + endtime, datetime_format)
-        starttime = datetime.datetime.strptime(starttime, datetime_format)
+        try:
+            endtime = datetime.datetime.strptime(
+                starttime[:-5] + endtime, datetime_format)
+            starttime = datetime.datetime.strptime(starttime, datetime_format)
+        except:
+            continue
 
         ongoing = starttime <= now <= endtime
         if ongoing:
