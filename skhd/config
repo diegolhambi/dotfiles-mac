@@ -65,14 +65,6 @@ ctrl + alt - x : yabai -m space --layout float && \
 ctrl + alt - c : yabai -m space --layout stack && \
                  sketchybar -m --trigger space_mode_changed &> /dev/null
 
-
-# move window between monitors
-# cmd + alt - 0x2F : WIN_ID=$(yabai -m query --windows --window | jq '.id') && yabai -m window --display recent && yabai -m window --focus $WIN_ID
-
-# focus stacked window
-ctrl + alt - 0x1E : yabai -m window --focus stack.next || yabai -m window --focus stack.first
-ctrl + alt - 0x21 : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
-
 # create desktop and follow focus - uses jq for parsing json (brew install jq)
 cmd + alt - n : yabai -m space --create && \
                  sketchybar --update
@@ -83,3 +75,6 @@ cmd + alt - w : yabai -m space --destroy && \
 
 # mute mic 0x27 = ' key
 shift + alt + cmd - 0x27 : export NAME=sound.input && ~/.config/sketchybar/plugins/sound.input.click.sh
+
+# toggle zen mode
+ctrl + cmd - z : export NAME=space.zen && ~/.config/sketchybar/plugins/space.zen.click.sh

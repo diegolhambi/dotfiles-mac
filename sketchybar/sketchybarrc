@@ -43,6 +43,7 @@ sketchybar --default "${defaults[@]}"
 
 source "$ITEM_DIR/space.list.sh"
 source "$ITEM_DIR/space.new.sh"
+source "$ITEM_DIR/space.zen.sh"
 source "$ITEM_DIR/space.mode.sh"
 
 source "$ITEM_DIR/window.title.sh"
