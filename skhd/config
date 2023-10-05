@@ -77,4 +77,4 @@ cmd + alt - w : yabai -m space --destroy && \
 shift + alt + cmd - 0x27 : export NAME=sound.input && ~/.config/sketchybar/plugins/sound.input.click.sh
 
 # toggle zen mode
-ctrl + cmd - z : export NAME=space.zen && ~/.config/sketchybar/plugins/space.zen.click.sh
+ctrl + cmd + shift - z : export NAME=space.zen && ~/.config/sketchybar/plugins/space.zen.click.sh
