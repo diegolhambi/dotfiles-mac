@@ -8,10 +8,10 @@ case CURRENT_PADDING in
     450) icon="􀇁";;
 esac
 
-if [[ "$CURRENT_PADDING" == 2 ]]; then
+if [[ "$CURRENT_PADDING" == 4 ]]; then
     yabai -m space --padding abs:2:2:450:450
 elif [[ "$CURRENT_PADDING" == 450 ]]; then
-    yabai -m space --padding abs:2:2:2:2
+    yabai -m space --padding abs:4:4:4:4
 fi
 
 sketchybar -m --trigger space_zen_changed

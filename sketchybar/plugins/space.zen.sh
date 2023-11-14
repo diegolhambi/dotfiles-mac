@@ -4,7 +4,7 @@ CURRENT_SPACE=$(yabai -m query --spaces | jq '.[] | select(."has-focus" == true)
 CURRENT_PADDING=$(yabai -m config --space $CURRENT_SPACE right_padding)
 
 case $CURRENT_PADDING in
-    2) icon="􀋦";;
+    4) icon="􀋦";;
     450) icon="􀇁";;
 esac
 
