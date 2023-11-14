@@ -17,6 +17,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light spaceship-prompt/spaceship-prompt
 
 SPACESHIP_GIT_STATUS_STASHED=""
+SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_PACKAGE_SHOW_PRIVATE=true
 spaceship remove gcloud
 
 autoload -U zcalc
