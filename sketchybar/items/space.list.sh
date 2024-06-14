@@ -16,7 +16,11 @@ for i in "${!SPACE_ICONS[@]}"; do
         background.height=24
         icon.font="$FONT:Bold:14.0"
         background.drawing=off
-        label.drawing=off
+        label.font="sketchybar-app-font:Regular:13.0"
+        label.y_offset=-1
+        label.padding_left=-6
+        label.padding_right=16
+        label.color=0xffbbbbbb
         script="$PLUGIN_DIR/space.list.sh"
         click_script="yabai -m space --focus ${index}"
     )
