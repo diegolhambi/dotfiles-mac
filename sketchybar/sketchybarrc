@@ -46,7 +46,7 @@ source "$ITEM_DIR/space.new.sh"
 source "$ITEM_DIR/space.zen.sh"
 source "$ITEM_DIR/space.mode.sh"
 
-source "$ITEM_DIR/window.title.sh"
+source "$ITEM_DIR/stando.sh"
 
 source "$ITEM_DIR/calendar.clock.sh"
 source "$ITEM_DIR/calendar.date.sh"
@@ -60,6 +60,7 @@ source "$ITEM_DIR/network.vpn.sh"
 source "$ITEM_DIR/battery.sh"
 
 source "$ITEM_DIR/message.indicator.sh"
+
 
 source "$ITEM_DIR/upcoming.sh"
 
