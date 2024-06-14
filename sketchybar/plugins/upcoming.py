@@ -38,7 +38,7 @@ def get_events():
     for line in lines:
         splat = line.split('🛂')
 
-        match = re.search("^(.*?) \((.*?)\)$", splat[0])
+        match = re.search(r'^(.*?) \((.*?)\)$', splat[0])
 
         title = match.group(1)
 
