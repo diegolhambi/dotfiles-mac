@@ -8,7 +8,7 @@ else
   space=$(yabai -m query --spaces --space | jq -r '.index')
 fi
 
-apps=$(yabai -m query --windows --space $space | jq -r 'map(select(.["is-hidden"] == false)) | .[].app')
+apps=$(yabai -m query --windows --space $space | jq -r 'map(select(.["is-hidden"] == false and .layer != "unknown" and (.title | startswith("Círculo") | not))) | .[].app')
 
 args=()
 
