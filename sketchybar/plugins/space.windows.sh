@@ -16,7 +16,7 @@ icon_strip=" "
 if [ "${apps}" != "" ]; then
   while read -r app
   do
-    __icon_map $app
+    __icon_map "$app"
     icon_strip+=" $icon_result"
   done <<< "${apps}"
   args+=(--set space.list.$space label.drawing=on)
