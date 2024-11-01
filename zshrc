@@ -1,4 +1,9 @@
-autoload -Uz compinit; compinit -u
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
 
 source $(brew --prefix)/opt/zinit/zinit.zsh
 
@@ -27,19 +32,9 @@ function __calc_plugin {
 }
 aliases[calc]='noglob __calc_plugin'
 
-cdp() {
-    cd "$HOME/Projects/$1"
-}
+val "$(fnm completions --shell zsh)"
 
-_cdp() {
-    ((CURRENT == 2)) &&
-    _files -/ -W "$HOME/Projects"
-}
-
-compdef _cdp cdp
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+export YARN_GLOBAL_FOLDER="$FNM_MULTISHELL_PATH/yarn-global"
+export YARN_PREFIX="$FNM_MULTISHELL_PATH"
 
 source ~/.work.zshrc
