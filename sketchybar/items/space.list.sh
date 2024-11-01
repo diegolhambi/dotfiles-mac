@@ -1,13 +1,10 @@
 #!/bin/bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0")
 
-for i in "${!SPACE_ICONS[@]}"; do
-    index=$(($i+1))
+for sid in $(aerospace list-workspaces --all); do
 
     space=(
-        associated_space=${index}
-        icon=${SPACE_ICONS[i]}
+        icon="${sid}"
         icon.width=24
         icon.align=center
         icon.color=$COLOR_DEFAULT_ICON
@@ -16,15 +13,17 @@ for i in "${!SPACE_ICONS[@]}"; do
         background.height=24
         icon.font="$FONT:Bold:14.0"
         background.drawing=off
+        label.drawing=off
         label.font="sketchybar-app-font:Regular:13.0"
-        label.y_offset=-1
-        label.padding_left=-6
-        label.padding_right=16
+        label.padding_right=8
         label.color=0xffbbbbbb
-        script="$PLUGIN_DIR/space.list.sh"
-        click_script="yabai -m space --focus ${index}"
+        script="$PLUGIN_DIR/space.list.sh ${sid}"
+        click_script="aerospace workspace ${sid}"
     )
 
-    sketchybar --add space "space.list.${index}" left \
-               --set "space.list.${index}" "${space[@]}"
+    sketchybar --add item "space.list.${sid}" left \
+               --set "space.list.${sid}" "${space[@]}" \
+               --add event aerospace_workspace_change \
+               --subscribe space.list.$sid aerospace_workspace_change
+               
 done

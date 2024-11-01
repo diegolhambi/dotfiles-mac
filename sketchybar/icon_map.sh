@@ -54,6 +54,9 @@ function __icon_map() {
    "Arc")
         icon_result=":arc:"
         ;;
+   "Arduino" | "Arduino IDE")
+        icon_result=":arduino:"
+        ;;
    "Atom")
         icon_result=":atom:"
         ;;
@@ -93,6 +96,9 @@ function __icon_map() {
    "Brave Browser")
         icon_result=":brave_browser:"
         ;;
+   "BusyCal")
+        icon_result=":busycal:"
+        ;;
    "Calculator" | "Calculette")
         icon_result=":calculator:"
         ;;
@@ -120,6 +126,9 @@ function __icon_map() {
    "Creative Cloud")
         icon_result=":creative_cloud:"
         ;;
+   "Cursor")
+        icon_result=":cursor:"
+        ;;
    "Cypress")
         icon_result=":cypress:"
         ;;
@@ -131,6 +140,9 @@ function __icon_map() {
         ;;
    "DaVinci Resolve")
         icon_result=":davinciresolve:"
+        ;;
+   "Deezer")
+        icon_result=":deezer:"
         ;;
    "Default")
         icon_result=":default:"
@@ -192,6 +204,9 @@ function __icon_map() {
    "Folx")
         icon_result=":folx:"
         ;;
+   "Fork")
+        icon_result=":fork:"
+        ;;
    "Fusion")
         icon_result=":fusion:"
         ;;
@@ -221,6 +236,12 @@ function __icon_map() {
         ;;
    "IntelliJ IDEA")
         icon_result=":idea:"
+        ;;
+   "Adobe Illustrator"* | "Illustrator")
+        icon_result=":illustrator:"
+        ;;
+   "Adobe InDesign"* | "InDesign")
+        icon_result=":indesign:"
         ;;
    "Inkdrop")
         icon_result=":inkdrop:"
@@ -299,6 +320,9 @@ function __icon_map() {
         ;;
    "Maps" | "Google Maps")
         icon_result=":maps:"
+        ;;
+   "Marta")
+        icon_result=":marta:"
         ;;
    "Matlab")
         icon_result=":matlab:"
@@ -393,6 +417,9 @@ function __icon_map() {
    "1Password")
         icon_result=":one_password:"
         ;;
+   "Open Video Downloader")
+        icon_result=":open_video_downloader:"
+        ;;
    "ChatGPT")
         icon_result=":openai:"
         ;;
@@ -480,6 +507,12 @@ function __icon_map() {
    "Rider" | "JetBrains Rider")
         icon_result=":rider:"
         ;;
+   "Rio")
+        icon_result=":rio:"
+        ;;
+   "Royal TSX")
+        icon_result=":royaltsx:"
+        ;;
    "Safari" | "Safari浏览器" | "Safari Technology Preview")
         icon_result=":safari:"
         ;;
@@ -497,6 +530,9 @@ function __icon_map() {
         ;;
    "Signal")
         icon_result=":signal:"
+        ;;
+   "sioyek")
+        icon_result=":sioyek:"
         ;;
    "Sketch")
         icon_result=":sketch:"
@@ -518,6 +554,9 @@ function __icon_map() {
         ;;
    "Sublime Text")
         icon_result=":sublime_text:"
+        ;;
+   "superProductivity")
+        icon_result=":superproductivity:"
         ;;
    "Tana")
         icon_result=":tana:"
@@ -606,7 +645,7 @@ function __icon_map() {
    "Xcode")
         icon_result=":xcode:"
         ;;
-   "Яндекс Музыка")
+   "Yandex Music")
         icon_result=":yandex_music:"
         ;;
    "Yuque" | "语雀")

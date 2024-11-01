@@ -1,28 +1,34 @@
 #!/bin/bash
 source "$HOME/.config/sketchybar/icon_map.sh"
 
+all_apps_space=$(aerospace list-windows --all --format "%{workspace}%{app-name}" --json)
+all_spaces=$(aerospace list-workspaces --all)
 
-if [ "$SENDER" = "space_windows_change" ]; then
-  space="$(echo "$INFO" | jq -r '.space')"
-else
-  space=$(yabai -m query --spaces --space | jq -r '.index')
-fi
+while read -r space; do
+  apps=$(echo "$all_apps_space" | jq -r ".[] | select(.workspace == \"$space\") | .\"app-name\"")
+  args=()
+  text=""
 
-apps=$(yabai -m query --windows --space $space | jq -r 'map(select(.["is-hidden"] == false and .layer != "unknown" and (.title | startswith("Círculo") | not))) | .[].app')
+  if [[ -n "$apps" ]]; then
+    while read -r app; do
+      __icon_map "$app"
+      text+="$icon_result"
+    done <<< "$apps"
 
+    args+=(--set space.list.$space label.drawing=on label="$text")
+  else
+    args+=(--set space.list.$space label.drawing=off label="")
+  fi
+
+  sketchybar -m "${args[@]}"
+done <<< "$all_spaces"
+
+spaces_per_monitor=$(aerospace list-workspaces --all --format "%{monitor-id}|%{workspace}")
+map_monitor=($(yabai -m query --displays | jq -r 'sort_by(.id) | .[].index'))
 args=()
 
-icon_strip=" "
-if [ "${apps}" != "" ]; then
-  while read -r app
-  do
-    __icon_map "$app"
-    icon_strip+=" $icon_result"
-  done <<< "${apps}"
-  args+=(--set space.list.$space label.drawing=on)
-else
-  args+=(--set space.list.$space label.drawing=off)
-fi
-args+=(--set space.list.$space label="$icon_strip")
+while IFS="|" read -r monitor space; do
+  args+=(--set space.list.$space display=${map_monitor[$(($monitor - 1))]})
+done <<< "$spaces_per_monitor"
 
 sketchybar -m "${args[@]}"
