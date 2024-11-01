@@ -6,6 +6,7 @@
 - link:
     ~/.zshrc: zshrc
     ~/.yabairc: yabai/config
+    ~/.aerospace.toml: aerospace.toml
     ~/.skhdrc: skhd/config
     ~/.config/sketchybar:
         create: true
