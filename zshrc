@@ -32,6 +32,8 @@ function __calc_plugin {
 }
 aliases[calc]='noglob __calc_plugin'
 
+eval "$(zoxide init zsh)"
+
 eval "$(fnm completions --shell zsh)"
 
 export YARN_GLOBAL_FOLDER="$FNM_MULTISHELL_PATH/yarn-global"
