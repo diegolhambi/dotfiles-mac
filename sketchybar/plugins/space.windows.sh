@@ -22,13 +22,3 @@ while read -r space; do
 
   sketchybar -m "${args[@]}"
 done <<< "$all_spaces"
-
-spaces_per_monitor=$(aerospace list-workspaces --all --format "%{monitor-id}|%{workspace}")
-map_monitor=($(yabai -m query --displays | jq -r 'sort_by(.id) | .[].index'))
-args=()
-
-while IFS="|" read -r monitor space; do
-  args+=(--set space.list.$space display=${map_monitor[$(($monitor - 1))]})
-done <<< "$spaces_per_monitor"
-
-sketchybar -m "${args[@]}"
